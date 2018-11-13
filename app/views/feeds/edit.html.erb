@@ -1,4 +1,4 @@
-<h1>物件登録</h1>
+<h1>物件編集</h1>
 
 <%= form_for(@feed) do |f| %>
   <%= f.label :propertyname %>
@@ -16,7 +16,7 @@
   <%= f.label :remarks %>
   <%= f.text_area :remarks %>
 
-  <%= f.submit "登録する" %>
+  <%= f.submit "更新する" %>
 <% end %>
 
-<%= link_to "戻る", feeds_path %>
+

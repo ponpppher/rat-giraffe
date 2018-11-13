@@ -16,6 +16,11 @@ class FeedsController < ApplicationController
     end
   end
 
+  def show
+    @feed = Feed.find_by(id:params[:id])
+  end
+
+
   def destroy
     @feed = Feed.find_by(id:params[:id]).destroy
     redirect_to root_path

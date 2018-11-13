@@ -17,6 +17,8 @@
         <td><%= f.age %></td>
         <td><%= f.remarks %></td>
         <td><%= link_to "詳細", feed_path(f.id) %></td>
+        <td><%= link_to "編集", edit_feed_path(f.id) %></td>
+
         <td><%= link_to "削除", feed_path(id: f.id), method: :delete %></td>
       </tr>
     <% end %>
