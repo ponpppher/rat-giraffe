@@ -1,17 +1,11 @@
 ja:
   activerecord:
     models:
-      feed: "ブログ"
-      user: "ユーザー"
+      feed: "投稿"
     attributes:
       feed:
-        title: "タイトル"
-        content: "内容"
-      user:
-        title: "タイトル"
-        name: "名前"
-        email: "メールアドレス"
-        current_password: "現在のパスワード"
-        password: "パスワード"
-        password_confirmation: "確認用パスワード"
-        remember_me: "ログインを記憶"
+        propertyname: "物件名"
+        rent: "賃料"
+        address: "住所"
+        age: "築年数"
+        remarks: "備考"
