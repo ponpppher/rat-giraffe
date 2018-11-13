@@ -1,0 +1,26 @@
+<h1>物件情報</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <th>物件名</th>
+      <th>賃料</th>
+      <th>住所</th>
+      <th>築年数</th>
+      <th>備考</th>
+    </tr>
+    <% @feed.each do |f| %>
+      <tr>
+        <td><%= f.propertyname %></td>
+        <td><%= f.rent %></td>
+        <td><%= f.address %></td>
+        <td><%= f.age %></td>
+        <td><%= f.remarks %></td>
+        <td><%= link_to "詳細", feed_path(f.id) %></td>
+        <td><%= link_to "削除", feed_path(id: f.id), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<table>
+
+<%= link_to "物件を登録する", new_feed_path %>
