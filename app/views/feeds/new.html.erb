@@ -3,19 +3,37 @@
 <%= form_for(@feed) do |f| %>
   <div style="border-bottom: double 2px #999999;" align=left >
     <%= f.label :propertyname %>
-    <%= f.text_field :propertyname %>
-
+    <%= f.text_field :propertyname %><br />
     <%= f.label :rent %>
-    <%= f.number_field :rent %>円
-
+    <%= f.number_field :rent %>円<br />
     <%= f.label :address %>
-    <%= f.text_field :address %>
-
+    <%= f.text_field :address %><br />
     <%= f.label :age %>
-    <%= f.number_field :age %>年
-
+    <%= f.number_field :age %>年<br />
     <%= f.label :remarks %>
-    <%= f.text_area :remarks %>
+    <%= f.text_area :remarks %><br />
+  </div>
+  <div class="field">
+    <%= f.label :nearest_stations, "最寄り駅1" %><br />
+    <%= f.fields_for :nearest_stations do | ns | %>
+      <%= ns.label :route_name, "路線名" %>
+      <%= ns.text_field :route_name %><br /> 
+      <%= ns.label :station_name, "駅名" %>
+      <%= ns.text_field :station_name %><br /> 
+      <%= ns.label :minute_walk, "徒歩分数" %>
+      <%= ns.text_field :minute_walk %><br /> 
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :nearest_stations, "最寄り駅2" %><br />
+    <%= f.fields_for :nearest_stations do | ns | %>
+      <%= ns.label :route_name, "路線名" %>
+      <%= ns.text_field :route_name %><br /> 
+      <%= ns.label :station_name, "駅名" %>
+      <%= ns.text_field :station_name %><br /> 
+      <%= ns.label :minute_walk, "徒歩分数" %>
+      <%= ns.text_field :minute_walk %><br /> 
+    <% end %>
   </div>
 
   <%= f.submit "登録する" %>

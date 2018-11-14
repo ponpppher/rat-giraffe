@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181113090738) do
+ActiveRecord::Schema.define(version: 20181114200140) do
 
   create_table "feeds", force: :cascade do |t|
     t.string  "propertyname", limit: 50,  null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20181113090738) do
     t.string  "address",      limit: 100, null: false
     t.integer "age",          limit: 3
     t.text    "remarks",                  null: false
+  end
+
+  create_table "nearest_stations", force: :cascade do |t|
+    t.string   "route_name",   limit: 30, null: false
+    t.string   "station_name",            null: false
+    t.integer  "minute_walk",  limit: 3
+    t.integer  "feed_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["feed_id"], name: "index_nearest_stations_on_feed_id"
   end
 
 end
