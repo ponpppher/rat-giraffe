@@ -25,7 +25,7 @@
   </div>
     <%= f.fields_for :nearest_stations do | ns | %>
       <div class="field">
-        <%= f.label :nearest_stations, "最寄り駅" %><br />
+        <%= f.label :nearest_stations, "最寄り駅#{ns.options[:child_index]+1}" %><br />
         <%= ns.label :route_name, "路線名" %>
         <%= ns.text_field :route_name %><br /> 
         <%= ns.label :station_name, "駅名" %>
