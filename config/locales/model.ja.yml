@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       feed: "投稿"
+      nearest_stations: "最寄り駅"
     attributes:
       feed:
         propertyname: "物件名"
@@ -9,3 +10,7 @@ ja:
         address: "住所"
         age: "築年数"
         remarks: "備考"
+      feed/nearest_stations:
+        route_name: "路線名"
+        station_name: "駅名"
+        minute_walk: "徒歩分数"

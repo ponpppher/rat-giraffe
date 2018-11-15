@@ -1,6 +1,7 @@
 <div style="border-bottom: double 2px #999999;" align=left >
   <div>
-    <strong>物件名:</strong><%= @feed.propertyname %>
+    <strong>物件名:</strong>
+    <%= @feed.propertyname %>
   </div>
   <br>
   <div>
@@ -22,9 +23,9 @@
 </div>
 <% @feed.nearest_stations.each_with_index do |f, index| %>
   <h4>最寄り駅<%= index + 1 %></h4>
-  route:<%= f.route_name %><br />
-  station:<%= f.station_name %><br />
-  mitute:<%= f.minute_walk %><br />
+  路線名:<%= f.route_name %><br />
+  駅名:<%= f.station_name %><br />
+  徒歩分数:<%= f.minute_walk %>分<br />
 <% end %>
 
 <%= link_to "編集", edit_feed_path(@feed.id) %>

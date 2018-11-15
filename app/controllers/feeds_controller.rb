@@ -11,9 +11,14 @@ before_action :set_feed, only:[:show, :edit, :update]
   end
 
   def create
-    @feed = Feed.create(feed_params)
-    redirect_to new_feed_path 
+    @feed = Feed.new(feed_params)
+    if @feed.save
+      redirect_to root_path 
+    else
+      render :new
+    end
   end
+
 
   def show
   end
