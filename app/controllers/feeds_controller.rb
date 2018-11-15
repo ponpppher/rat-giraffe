@@ -7,20 +7,16 @@ before_action :set_feed, only:[:show, :edit, :update]
 
   def new
     @feed = Feed.new
+    2.times{@feed.nearest_stations.build}
   end
 
   def create
-    feed = Feed.new(feed_params)
-    if feed.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @feed = Feed.create(feed_params)
+    redirect_to new_feed_path 
   end
 
   def show
   end
-
   def edit
   end
 
@@ -40,7 +36,14 @@ before_action :set_feed, only:[:show, :edit, :update]
   private
 
   def feed_params
-    params.require(:feed).permit(:propertyname, :rent, :address, :age, :remarks)
+    params.require(:feed).permit(
+      :propertyname,
+      :rent,
+      :address,
+      :age,
+      :remarks,
+      nearest_stations_attributes:[:id, :route_name, :station_name, :minute_walk, :feed_id]
+    )
   end
 
   def set_feed
