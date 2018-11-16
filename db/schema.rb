@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181114200140) do
+ActiveRecord::Schema.define(version: 20181116111451) do
 
   create_table "feeds", force: :cascade do |t|
     t.string  "propertyname", limit: 50,  null: false
-    t.integer "rent",         limit: 8
+    t.integer "rent",         limit: 10,  null: false
     t.string  "address",      limit: 100, null: false
-    t.integer "age",          limit: 3
-    t.text    "remarks",                  null: false
+    t.integer "age",          limit: 3,   null: false
+    t.text    "remarks",      limit: 120, null: false
   end
 
   create_table "nearest_stations", force: :cascade do |t|

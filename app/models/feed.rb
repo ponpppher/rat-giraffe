@@ -1,8 +1,8 @@
 class Feed < ApplicationRecord
-  validates:propertyname, presence:true
-  validates:rent, presence:true
-  validates:address, presence:true
-  validates:age, presence:true
+  validates:propertyname, presence:true, length:{maximum:50}
+  validates:rent, presence:true, length:{maximum:8}
+  validates:address, presence:true, length:{maximum:100}
+  validates:age, presence:true, length:{maximum:3}
   validates:remarks, presence:true, length:{maximum:120}
 
   has_many :nearest_stations
