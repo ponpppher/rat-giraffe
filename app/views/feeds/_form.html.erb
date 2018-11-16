@@ -1,0 +1,36 @@
+<% if @feed.errors.any? %>
+  <div id = "error_explanation">
+    <h2> <%= @feed.errors.count %> errors found! </h2>
+    <ul>
+      <% @feed.errors.full_messages.each do | msg | %>
+        <li> <%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @feed do |f| %>
+  <%= f.label :propertyname %>
+  <p><%= f.text_field :propertyname %></p>
+  <%= f.label :rent %>
+  <p><%= f.number_field :rent %>円</p>
+  <%= f.label :address %>
+  <p><%= f.text_field :address %></p> 
+  <%= f.label :age %>
+  <p><%= f.number_field :age %>年</p>
+  <%= f.label :remarks %>
+  <p><%= f.text_area :remarks %></p>
+  <div style="border-bottom: double 2px #999999;" align=left ></div>
+  <%= f.fields_for :nearest_stations do | ns | %>
+    <br>
+    <p><%= f.label :nearest_stations, "最寄り駅#{ns.options[:child_index]+1}" %></p>
+    <%= ns.label :route_name, "路線名" %>
+    <p><%= ns.text_field :route_name %></p> 
+    <%= ns.label :station_name, "駅名" %>
+    <p><%= ns.text_field :station_name %></p> 
+    <%= ns.label :minute_walk, "徒歩分数" %>
+    <p><%= ns.number_field :minute_walk %></p> 
+  <% end %>
+
+  <p><%= f.submit %></p>
+<% end %>
